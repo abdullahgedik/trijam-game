@@ -4,24 +4,25 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-   
+    [Header("References")]
+    [SerializeField] private GameManager gameManager;
+    [Header("Settings")]
+    [SerializeField] private int maxHealth;
 
-        [SerializeField] private int maxHealth;
-        private int health;
+    private int health;
 
-        void Start()
+    void Start()
+    {
+        health = maxHealth;
+    }
+
+    public void TakeDamage(int amount)
+    {
+        health -= amount;
+        if (health <= 0)
         {
-            health = maxHealth;
+            gameManager.PlayerIsDead();
+            Destroy(gameObject);
         }
-
-        public void TakeDamage(int amount)
-        {
-            health -= amount;
-            if (health <= 0)
-            {
-                Destroy(gameObject);
-            }
-        }
-
-    
+    }
 }

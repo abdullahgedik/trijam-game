@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     [Header("References")]
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject gameOverMenu;
+    [SerializeField] private GameObject levelWonScreen;
     [SerializeField] private GameObject player;
 
     private bool isGamePaused = false;
@@ -67,5 +68,17 @@ public class GameManager : MonoBehaviour
     public void NextScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void LoadMainMenu()
+    {
+        SceneManager.LoadScene(sceneBuildIndex: 0);
+    }
+
+    public void LevelWon()
+    {
+        levelWonScreen.SetActive(true);
+        player.GetComponent<Health>().enabled = false;
+        Destroy(player.GetComponent<Health>());
     }
 }

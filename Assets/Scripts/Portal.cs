@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class Portal : MonoBehaviour
 {
-    public Transform destination;
-    GameObject player;
+    [Header("Connect Other Portal")]
+    [SerializeField] private Transform destination;
+    
+    private GameObject player;
 
     private void Awake()
     {

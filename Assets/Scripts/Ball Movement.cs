@@ -39,7 +39,7 @@ public class BallMovement : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && !isDragging && isThrowable)
+        if (Input.GetMouseButtonDown(0) && !isDragging && isThrowable && !isGamePaused)
         {
             DragStart();
         }
