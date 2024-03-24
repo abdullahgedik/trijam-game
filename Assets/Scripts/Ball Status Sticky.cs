@@ -15,7 +15,8 @@ public class BallStatusSticky : MonoBehaviour
     private CircleCollider2D circleCollider;
     private SpriteRenderer spriteRenderer;
 
-    private Color baseColor;
+    private Color ballColor;
+    private Color trailColor;
     private bool isBouncy = true;
     private float gravity;
     void Start()
@@ -25,7 +26,8 @@ public class BallStatusSticky : MonoBehaviour
         circleCollider = gameObject.GetComponent<CircleCollider2D>();
         trailRenderer = gameObject.GetComponent<TrailRenderer>();
 
-        baseColor = spriteRenderer.color;
+        ballColor = spriteRenderer.color;
+        trailColor = trailRenderer.startColor;
         gravity = rb.gravityScale;
     }
 
@@ -43,9 +45,10 @@ public class BallStatusSticky : MonoBehaviour
         {
             isBouncy = !isBouncy;
             circleCollider.sharedMaterial = bouncy;
-            spriteRenderer.color = baseColor;
-            trailRenderer.startColor = baseColor;
+            spriteRenderer.color = ballColor;
+            trailRenderer.startColor = trailColor;
             rb.gravityScale = gravity;
+            rb.constraints = RigidbodyConstraints2D.None;
         }
     }
 
@@ -55,12 +58,17 @@ public class BallStatusSticky : MonoBehaviour
         {
             rb.gravityScale = 0;
             rb.velocity = new Vector2(0, 0);
+            rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
         if (isSticky)
+        {
             rb.gravityScale = gravity;
+            rb.constraints = RigidbodyConstraints2D.None;
+
+        }
     }
 }
