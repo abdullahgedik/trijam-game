@@ -40,14 +40,14 @@ public class GameManager : MonoBehaviour
     {
         if (!isGamePaused && !playerIsDead)
         {
-            player.GetComponent<PlayerMovement>().GameIsPaused();
+            player.GetComponent<BallMovement>().GameIsPaused();
             isGamePaused = !isGamePaused;
             Time.timeScale = 0f;
             pauseMenu.SetActive(true);
         }
         else if (isGamePaused && !playerIsDead)
         {
-            player.GetComponent<PlayerMovement>().GameIsPaused();
+            player.GetComponent<BallMovement>().GameIsPaused();
             isGamePaused = !isGamePaused;
             Time.timeScale = 1f;
             pauseMenu.SetActive(false);

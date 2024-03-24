@@ -12,6 +12,8 @@ public class BallMovement : MonoBehaviour
     [SerializeField] private float forceToAdd;
     [SerializeField] private float throwCooldown;
 
+    private bool isGamePaused = false;
+
     private bool isThrowable = true;
     private Camera cam;
     private bool isDragging;
@@ -96,5 +98,10 @@ public class BallMovement : MonoBehaviour
         isThrowable = false;
         yield return new WaitForSeconds(throwCooldown);
         isThrowable = true;
+    }
+
+    public void GameIsPaused()
+    {
+        isGamePaused = !isGamePaused;
     }
 }
