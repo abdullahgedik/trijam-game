@@ -14,7 +14,7 @@ public class Portal : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(Vector2.Distance(player.transform.position, transform.position) > 0.75f)
+        if(Vector2.Distance(collision.transform.position, transform.position) > 0.75f)
         {
             player.transform.position = destination.transform.position;
         }

@@ -16,9 +16,10 @@ GameObject:
   - component: {fileID: 7575613049954900348}
   - component: {fileID: 7978586247352760348}
   - component: {fileID: 963559291125105471}
+  - component: {fileID: 6698107749430058624}
   m_Layer: 0
   m_Name: Ball
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -188,7 +189,7 @@ TrailRenderer:
       atime6: 0
       atime7: 0
       m_Mode: 0
-      m_ColorSpace: 0
+      m_ColorSpace: -1
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
     numCornerVertices: 0
@@ -311,7 +312,7 @@ LineRenderer:
       atime6: 0
       atime7: 0
       m_Mode: 0
-      m_ColorSpace: 0
+      m_ColorSpace: -1
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
     numCornerVertices: 0
@@ -419,3 +420,16 @@ MonoBehaviour:
   bouncy: {fileID: 6200000, guid: ed41b1eedcc935241b2567f60b4917a6, type: 2}
   notBouncy: {fileID: 6200000, guid: 56391a184f92a1845a7bd5b13957b9b9, type: 2}
   isSticky: 0
+--- !u!114 &6698107749430058624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8262913869385709303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c2ac51a710bfed4387c0828cf3a892c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 1
